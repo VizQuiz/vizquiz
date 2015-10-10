@@ -1,4 +1,4 @@
-Meteor.startup(function() {
+Meteor.startup(function () {
   // seed some survey questions
   SurveyQuestions.remove({});
   Surveys.remove({});
@@ -8,12 +8,12 @@ Meteor.startup(function() {
       {
         surveyId: '99999',
         surveyorId: '77777',
-        question: 'What\'s your coding experience?',
+        question: "What's your coding experience?",
         choices: [
           { label: 'Been doing this for years. (>5 yrs)', value: 0, color: 'rgb(114, 147, 203)', voters: []},
           { label: 'Coding away regularly (3-5 yrs)', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
           { label: 'Just getting started. (1-2 yrs)', value: 0, color: 'rgb(132, 186, 91)', voters: [] },
-          { label: 'I\'m a student. (<1 yr)', value: 0, color: 'rgb(211, 94, 96)', voters: [] }
+          { label: "I'm a student. (<1 yr)", value: 0, color: 'rgb(211, 94, 96)', voters: [] }
         ]
       },
       {
@@ -58,9 +58,11 @@ Meteor.startup(function() {
           { label: 'Other', value: 0, color: 'rgb(128, 133, 133)', voters: [] }
         ]
       },
-    ];
+    ]
 
+    Survey.insert({surveyId: '99999', surveyorId: '77777'})
 
+<<<<<<< Updated upstream
     Surveys.insert({surveyId: '99999', surveyorId: '77777'});
 
     _.each(sampleQs, function(question) {
@@ -71,3 +73,13 @@ Meteor.startup(function() {
   console.log('Suggestion Count: ' + Surveys.find().count());
   console.log('Questions: ' + SurveyQuestions.find().count());
 });
+=======
+    _.each(sampleQs, function (question) {
+      SurveyQuestions.insert(question)
+    })
+  }
+
+  console.log('Suggestion Count: ' + Suggestions.find().count())
+  console.log('Questions: ' + SurveyQuestions.find().count())
+})
+>>>>>>> Stashed changes

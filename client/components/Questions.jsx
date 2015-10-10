@@ -9,19 +9,22 @@ Questions = React.createClass({
       {
         _id: 1,
         title: 'hi',
-        options: ['one', 'two', 'three']
+        choices: [
+          <Choices title='The first choice'/>,
+          <Choices title='The second choice'/>,
+          <Choices title='The third choice'/>]
 
       },
 
       {
         _id: 2,
         title: 'hello',
-        options: ['one', 'two', 'three']
+        choices: ['one', 'two', 'three']
 
       }
     ]
     return questions.map(function (question, index) {
-      return <Question id={question._id} title={question.title} options={question.options}/>
+      return <Question id={question._id} title={question.title} choices={question.choices}/>
     })
   },
 
