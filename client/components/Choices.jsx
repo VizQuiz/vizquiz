@@ -1,23 +1,25 @@
 Choices = React.createClass({
   getDefaultProps: function () {
     return {
-      title: 'The defualt title'
+      title: 'The defualt title',
+      _id: 1,
+      checked: false
     }
   },
-  handleClick: function (e) {
-    Meteor.call('clickedChoice', e)
+  handleClick: function () {
+    this.props.handleClick(this.props.checked)
+    Meteor.call('clickedChoice', this.props._id, !this.props.checked)
   },
+
   render: function () {
     return (
-    <div>
+      <div>
         <input
-    type='checkbox'
-    readOnly={ true }
-    checked={ this.props.choice.checked }
-    onClick={ this.handleClick() }/>
-    <span>{this.props.title}</span>
+          type='checkbox'
+          checked={this.props.checked}
+          onClick={this.handleClick}/>
+          <span>{this.props.title}</span>
       </div>
-    }
     )
   }
-})
+})  

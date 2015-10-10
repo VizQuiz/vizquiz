@@ -4,16 +4,22 @@ Questions = React.createClass({
       questions: []
     }
   },
+
   renderQuestions: function () {
     var questions = [
       {
         _id: 1,
         title: 'hi',
         choices: [
-          <Choices title='The first choice'/>,
-          <Choices title='The second choice'/>,
-          <Choices title='The third choice'/>]
-
+          <Choices 
+            _id='1' 
+            title='The first choice'/>,
+          <Choices 
+            _id='2' 
+            title='The second choice'/>,
+          <Choices 
+            _id='3' 
+            title='The third choice'/>]
       },
 
       {
