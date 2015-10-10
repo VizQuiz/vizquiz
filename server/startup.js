@@ -1,4 +1,4 @@
-Meteor.startup(function() {
+Meteor.startup(function () {
   // seed some survey questions
   SurveyQuestions.remove({});
   Surveys.remove({});
@@ -13,12 +13,12 @@ Meteor.startup(function() {
       {
         surveyId: surveyId,
         surveyorId: '77777',
-        question: 'What\'s your coding experience?',
+        question: "What's your coding experience?",
         choices: [
           { label: 'Been doing this for years. (>5 yrs)', value: 0, color: 'rgb(114, 147, 203)', voters: []},
           { label: 'Coding away regularly (3-5 yrs)', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
           { label: 'Just getting started. (1-2 yrs)', value: 0, color: 'rgb(132, 186, 91)', voters: [] },
-          { label: 'I\'m a student. (<1 yr)', value: 0, color: 'rgb(211, 94, 96)', voters: [] }
+          { label: "I'm a student. (<1 yr)", value: 0, color: 'rgb(211, 94, 96)', voters: [] }
         ]
       },
       {
@@ -63,7 +63,9 @@ Meteor.startup(function() {
           { label: 'Other', value: 0, color: 'rgb(128, 133, 133)', voters: [] }
         ]
       },
-    ];
+    ]
+
+    Surveys.insert({surveyId: '99999', surveyorId: '77777'});
 
     _.each(sampleQs, function(question) {
       SurveyQuestions.insert(question);
