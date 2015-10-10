@@ -5,6 +5,10 @@ Questions = React.createClass({
     }
   },
 
+  handleClick: function(checked) {
+    console.log('checked')
+  },
+
   renderQuestions: function () {
     var questions = [
       {
@@ -13,13 +17,16 @@ Questions = React.createClass({
         choices: [
           <Choices 
             _id='1' 
-            title='The first choice'/>,
+            title='The first choice'
+            handleClick={this.handleClick}/>,
           <Choices 
             _id='2' 
-            title='The second choice'/>,
+            title='The second choice'
+            handleClick={this.handleClick}/>,
           <Choices 
             _id='3' 
-            title='The third choice'/>]
+            title='The third choice'
+            handleClick={this.handleClick}/>]
       },
 
       {

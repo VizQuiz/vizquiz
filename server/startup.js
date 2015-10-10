@@ -1,12 +1,17 @@
 Meteor.startup(function () {
   // seed some survey questions
-  SurveyQuestions.remove({})
-  Surveys.remove({})
-  surveyQs = SurveyQuestions.find()
+  SurveyQuestions.remove({});
+  Surveys.remove({});
+
+  if (Surveys.find().count() === 0) {
+    surveyId = Surveys.insert({surveyorId: '77777'});
+  }
+
+  surveyQs = SurveyQuestions.find({surveyId: surveyId});
   if (surveyQs.count() === 0) {
     var sampleQs = [
       {
-        surveyId: '99999',
+        surveyId: surveyId,
         surveyorId: '77777',
         question: "What's your coding experience?",
         choices: [
@@ -17,7 +22,7 @@ Meteor.startup(function () {
         ]
       },
       {
-        surveyId: '99999',
+        surveyId: surveyId,
         surveyorId: '77777',
         question: 'What web framework/platform do you use most these days?',
         choices: [
@@ -32,7 +37,7 @@ Meteor.startup(function () {
         ]
       },
       {
-        surveyId: '99999',
+        surveyId: surveyId,
         surveyorId: '77777',
         question: 'What web framework/platform would you like to use more?',
         choices: [
@@ -47,7 +52,7 @@ Meteor.startup(function () {
         ]
       },
       {
-        surveyId: '99999',
+        surveyId: surveyId,
         surveyorId: '77777',
         question: 'Which of these areas of dev do you think needs the most improvement?',
         choices: [
@@ -60,13 +65,11 @@ Meteor.startup(function () {
       },
     ]
 
-    Surveys.insert({surveyId: '99999', surveyorId: '77777'})
-
-    _.each(sampleQs, function (question) {
-      SurveyQuestions.insert(question)
-    })
+    _.each(sampleQs, function(question) {
+      SurveyQuestions.insert(question);
+    });
   }
 
-  console.log('Suggestion Count: ' + Surveys.find().count())
-  console.log('Questions: ' + SurveyQuestions.find().count())
-})
+  console.log('Survey Count: ' + Surveys.find().count());
+  console.log('Survey Questions: ' + SurveyQuestions.find().count());
+});
