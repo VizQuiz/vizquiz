@@ -1,6 +1,7 @@
 Meteor.startup(function() {
   // seed some survey questions
-  //SurveyQuestions.remove({});
+  SurveyQuestions.remove({});
+  Surveys.remove({});
   surveyQs = SurveyQuestions.find();
   if (surveyQs.count() === 0) {
     var sampleQs = [
@@ -60,13 +61,13 @@ Meteor.startup(function() {
     ];
 
 
-    Survey.insert({surveyId: '99999', surveyorId: '77777'});
+    Surveys.insert({surveyId: '99999', surveyorId: '77777'});
 
     _.each(sampleQs, function(question) {
       SurveyQuestions.insert(question);
     });
   }
 
-  console.log('Suggestion Count: ' + Suggestions.find().count());
+  console.log('Suggestion Count: ' + Surveys.find().count());
   console.log('Questions: ' + SurveyQuestions.find().count());
 });
