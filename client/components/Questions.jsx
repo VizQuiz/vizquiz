@@ -16,7 +16,7 @@ Questions = React.createClass({
       }
     ]
     return questions.map(function (question, index) {
-      return <Question id={question.id} title={question.title} options={question.options}/>
+      return <Question id={question._id} title={question.title} options={question.options}/>
     })
   },
 
