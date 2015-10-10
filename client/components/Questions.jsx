@@ -1,4 +1,9 @@
 Questions = React.createClass({
+  getDefaultProps: function () {
+    return {
+      questions: []
+    }
+  },
   renderQuestions: function () {
     var questions = [
       {
