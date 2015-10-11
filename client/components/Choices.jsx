@@ -1,6 +1,6 @@
 Choices = React.createClass({
   handleClick: function(newIdx, id, evt) {
-    var oldIdx = evt.target.parentElement.parentElement.getAttribute('data-chosen');
+    var oldIdx = evt.target.parentElement.parentElement.parentElement.getAttribute('data-chosen');
     //console.log(newIdx, oldIdx, id);
     var property;
     var action;
@@ -65,8 +65,6 @@ Choices = React.createClass({
     var listChoices = self.props.choices.map(function(choice, index) {
       var choiceClass = 'choice';
       var selectedChoice = false;
-
-      var lineStyle = {stroke: choice.color, strokeWidth: '5'};
       var choicePercent = 0;
 
       if(choiceSum !== 0) {
@@ -81,18 +79,8 @@ Choices = React.createClass({
 
       return (
         <li key={index} className={choiceClass}>
-          <input
-            type='checkbox'
-            checked={selectedChoice}
-            onChange={self.handleClick.bind(self, index, self.props.questionId)}/>
-          <span>{choice.label}</span>
-          <div>
-            <svg className='graph' width='250px' height='5px'>
-              <g>
-                <line className='graph' x1='1' y1='3' x2={choicePercent + '%'} y2='3' strokeLinecap='butt' style={lineStyle} />
-              </g>
-            </svg>
-        </div>
+          <Choice label={choice.label} checked={selectedChoice} onChange={self.handleClick.bind(self, index, self.props.questionId)} />
+          <ChoiceBar color={choice.color} length={choicePercent + '%'} />
         </li>
       );
     });
@@ -103,13 +91,7 @@ Choices = React.createClass({
 
     return (
       <ul key={this.props.questionId} style={ulStyle} className='choices' data-chosen={chosen}>
-        <li className='scale'>
-          <span>0%</span>
-          <svg width='235px' height='5px'>
-            <line x1='0' y1='3' x2={'100%'} y2='3' strokeLinecap='butt' style={{stroke: 'black', strokeWidth: '1'}} />
-          </svg>
-          <span>100% ({choiceSum} {choiceSum === 1 ? 'vote' : 'votes'})</span>
-        </li>
+        <ChoiceBarScale total={choiceSum} />
         {listChoices}
       </ul>
     );
