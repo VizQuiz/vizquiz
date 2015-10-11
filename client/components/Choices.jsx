@@ -6,7 +6,8 @@ Choices = React.createClass({
       checked: false
     }
   },
-  handleClick: function () {
+  handleClick: function (e) {
+    console.log('EVENT OF CLICK', e)
     this.props.handleClick(this.props.checked)
     Meteor.call('clickedChoice', this.props._id, !this.props.checked)
   },
@@ -17,7 +18,7 @@ Choices = React.createClass({
         <input
           type='checkbox'
           checked={this.props.checked}
-          onClick={this.handleClick}/>
+          onClick={this.handleClick()}/>
           <span>{this.props.title}</span>
       </div>
     )
