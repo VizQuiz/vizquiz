@@ -17,7 +17,7 @@ Question = React.createClass({
   render: function () {
     var self = this
     var choices = this.props.choices.map(function(choice, index) {
-      return <Choice key={index} questionId={self.props.id} count={choice.value} label={choice.label} voters={choice.voters} />
+      return <Choice key={index} choiceId={index} questionId={self.props.id} count={choice.value} label={choice.label} voters={choice.voters} />
     });
 
     return (

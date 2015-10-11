@@ -1,8 +1,12 @@
 Choice = React.createClass({
 
-  handleClick: function () {
-    // this.props.handleClick(this.props.checked)
-    // Meteor.call('clickedChoice', this.props._id, !this.props.checked)
+  handleClick: function (e) {
+    var choiceId = this.props.choiceId
+    console.log('THE CLICK EVENT', this.props)
+    var propVal = 'choices.' + choiceId + '.voters'
+    var addToSet = {}
+    addToSet[propVal] = Session.get('deviceId') 
+    SurveyQuestions.update({_id: this.props.questionId}, { $addToSet: addToSet })
   },
 
   render: function () {
