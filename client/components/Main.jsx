@@ -3,14 +3,14 @@ Main = React.createClass({
 
   getMeteorData: function () {
     return {
-      questions: SurveyQuestions.find({}).fetch()
+      survey: SurveyQuestions.find({}).fetch()
     }
   },
 
   render: function () {
     return (
     <div>
-      <Questions questions={this.data.questions} />
+      <Questions questionList={this.data.survey} />
     </div>
     );
   }

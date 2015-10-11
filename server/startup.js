@@ -13,54 +13,54 @@ Meteor.startup(function () {
       {
         surveyId: surveyId,
         surveyorId: '77777',
-        title: "What's your coding experience?",
+        label: "What's your coding experience?",
         choices: [
-          { label: 'Been doing this for years. (>5 yrs)', value: 0, color: 'rgb(114, 147, 203)', voters: []},
-          { label: 'Coding away regularly (3-5 yrs)', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
-          { label: 'Just getting started. (1-2 yrs)', value: 0, color: 'rgb(132, 186, 91)', voters: [] },
-          { label: "I'm a student. (<1 yr)", value: 0, color: 'rgb(211, 94, 96)', voters: [] }
+          { label: 'Been doing this for years. (>5 yrs)', votes: 0, color: 'rgb(114, 147, 203)', voters: []},
+          { label: 'Coding away regularly (3-5 yrs)', votes: 0, color: 'rgb(225, 151, 76)', voters: [] },
+          { label: 'Just getting started. (1-2 yrs)', votes: 0, color: 'rgb(132, 186, 91)', voters: [] },
+          { label: "I'm a student. (<1 yr)", votes: 0, color: 'rgb(211, 94, 96)', voters: [] }
         ]
       },
       {
         surveyId: surveyId,
         surveyorId: '77777',
-        title: 'What web framework/platform do you use most these days?',
+        label: 'What web framework/platform do you use most these days?',
         choices: [
-          { label: 'Meteor', value: 0, color: 'rgb(114, 147, 203)', voters: [] },
-          { label: 'Node', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
-          { label: 'Angular', value: 0, color: 'rgb(132, 186, 91)', voters: [] },
-          { label: 'Ember', value: 0, color: 'rgb(211, 94, 96)', voters: [] },
-          { label: 'React', value: 0, color: 'rgb(128, 133, 133)', voters: [] },
-          { label: 'Rails', value: 0, color: 'rgb(144, 103, 167)', voters: [] },
-          { label: 'Django', value: 0, color: 'rgb(171, 104, 87)', voters: [] },
-          { label: 'Other', value: 0, color: 'rgb(204, 194, 16)', voters: [] }
+          { label: 'Meteor', votes: 0, color: 'rgb(114, 147, 203)', voters: [] },
+          { label: 'Node', votes: 0, color: 'rgb(225, 151, 76)', voters: [] },
+          { label: 'Angular', votes: 0, color: 'rgb(132, 186, 91)', voters: [] },
+          { label: 'Ember', votes: 0, color: 'rgb(211, 94, 96)', voters: [] },
+          { label: 'React', votes: 0, color: 'rgb(128, 133, 133)', voters: [] },
+          { label: 'Rails', votes: 0, color: 'rgb(144, 103, 167)', voters: [] },
+          { label: 'Django', votes: 0, color: 'rgb(171, 104, 87)', voters: [] },
+          { label: 'Other', votes: 0, color: 'rgb(204, 194, 16)', voters: [] }
         ]
       },
       {
         surveyId: surveyId,
         surveyorId: '77777',
-        title: 'What web framework/platform would you like to use more?',
+        label: 'What web framework/platform would you like to use more?',
         choices: [
-          { label: 'Meteor', value: 0, color: 'rgb(114, 147, 203)', voters: [] },
-          { label: 'Node', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
-          { label: 'Angular', value: 0, color: 'rgb(132, 186, 91)', voters: [] },
-          { label: 'Ember', value: 0, color: 'rgb(211, 94, 96)', voters: [] },
-          { label: 'React', value: 0, color: 'rgb(128, 133, 133)', voters: [] },
-          { label: 'Rails', value: 0, color: 'rgb(144, 103, 167)', voters: [] },
-          { label: 'Django', value: 0, color: 'rgb(171, 104, 87)', voters: [] },
-          { label: 'Other', value: 0, color: 'rgb(204, 194, 16)', voters: [] }
+          { label: 'Meteor', votes: 0, color: 'rgb(114, 147, 203)', voters: [] },
+          { label: 'Node', votes: 0, color: 'rgb(225, 151, 76)', voters: [] },
+          { label: 'Angular', votes: 0, color: 'rgb(132, 186, 91)', voters: [] },
+          { label: 'Ember', votes: 0, color: 'rgb(211, 94, 96)', voters: [] },
+          { label: 'React', votes: 0, color: 'rgb(128, 133, 133)', voters: [] },
+          { label: 'Rails', votes: 0, color: 'rgb(144, 103, 167)', voters: [] },
+          { label: 'Django', votes: 0, color: 'rgb(171, 104, 87)', voters: [] },
+          { label: 'Other', votes: 0, color: 'rgb(204, 194, 16)', voters: [] }
         ]
       },
       {
         surveyId: surveyId,
         surveyorId: '77777',
-        title: 'Which of these areas of dev do you think needs the most improvement?',
+        label: 'Which of these areas of dev do you think needs the most improvement?',
         choices: [
-          { label: 'Deployment', value: 0, color: 'rgb(114, 147, 203)', voters: [] },
-          { label: 'Tool Chain', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
-          { label: 'Dev/Ops', value: 0, color: 'rgb(132, 186, 91)', voters: [] },
-          { label: 'Updates/Versioning', value: 0, color: 'rgb(211, 94, 96)', voters: [] },
-          { label: 'Other', value: 0, color: 'rgb(128, 133, 133)', voters: [] }
+          { label: 'Deployment', votes: 0, color: 'rgb(114, 147, 203)', voters: [] },
+          { label: 'Tool Chain', votes: 0, color: 'rgb(225, 151, 76)', voters: [] },
+          { label: 'Dev/Ops', votes: 0, color: 'rgb(132, 186, 91)', voters: [] },
+          { label: 'Updates/Versioning', votes: 0, color: 'rgb(211, 94, 96)', voters: [] },
+          { label: 'Other', votes: 0, color: 'rgb(128, 133, 133)', voters: [] }
         ]
       },
     ];

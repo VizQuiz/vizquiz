@@ -1,17 +1,17 @@
 Questions = React.createClass({
-  getDefaultProps: function () {
-    return {
-      questions: []
-    }
-  },
 
   render: function () {
-    var myQuestions = this.props.questions.map(function (question, index) {
-      return <Question key={question._id + index} id={question._id} title={question.title} choices={question.choices}/>
+    var questionList = this.props.questionList.map(function (question, index) {
+      return <Question key={question._id + index} questionId={question._id} label={question.label} choices={question.choices}/>
     })
+
+    var ulStyle = {
+      listStyleType: 'none'
+    }
+
     return (
-      <ul>
-        {myQuestions}
+      <ul style={ulStyle}>
+        {questionList}
       </ul>
     )
   }
