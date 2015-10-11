@@ -13,5 +13,5 @@ Meteor.startup(function () {
   Meteor.call('setUserId', myId);
   Session.set('adminId', false);
 
-  React.render(<Main />, document.getElementById('vizquiz'))
+  React.render(<Survey />, document.getElementById('vq-survey'))
 })
