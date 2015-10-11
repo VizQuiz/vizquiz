@@ -57,6 +57,7 @@ Choices = React.createClass({
     var self = this;
     var chosen = -1;
     var choiceSum = 0;
+    var colors = d3.scale.category10();
 
     for (i = 0; i < self.props.choices.length; i++) {
       choiceSum += self.props.choices[i].votes;
@@ -80,7 +81,7 @@ Choices = React.createClass({
       return (
         <li key={index} className={choiceClass}>
           <Choice label={choice.label} checked={selectedChoice} onChange={self.handleClick.bind(self, index, self.props.questionId)} />
-          <ChoiceBar color={choice.color} length={choicePercent + '%'} />
+          <ChoiceBar color={colors(index)} length={choicePercent + '%'} />
         </li>
       );
     });
