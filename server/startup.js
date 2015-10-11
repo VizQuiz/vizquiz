@@ -13,7 +13,7 @@ Meteor.startup(function () {
       {
         surveyId: surveyId,
         surveyorId: '77777',
-        question: "What's your coding experience?",
+        title: "What's your coding experience?",
         choices: [
           { label: 'Been doing this for years. (>5 yrs)', value: 0, color: 'rgb(114, 147, 203)', voters: []},
           { label: 'Coding away regularly (3-5 yrs)', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
@@ -24,7 +24,7 @@ Meteor.startup(function () {
       {
         surveyId: surveyId,
         surveyorId: '77777',
-        question: 'What web framework/platform do you use most these days?',
+        title: 'What web framework/platform do you use most these days?',
         choices: [
           { label: 'Meteor', value: 0, color: 'rgb(114, 147, 203)', voters: [] },
           { label: 'Node', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
@@ -39,7 +39,7 @@ Meteor.startup(function () {
       {
         surveyId: surveyId,
         surveyorId: '77777',
-        question: 'What web framework/platform would you like to use more?',
+        title: 'What web framework/platform would you like to use more?',
         choices: [
           { label: 'Meteor', value: 0, color: 'rgb(114, 147, 203)', voters: [] },
           { label: 'Node', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
@@ -54,7 +54,7 @@ Meteor.startup(function () {
       {
         surveyId: surveyId,
         surveyorId: '77777',
-        question: 'Which of these areas of dev do you think needs the most improvement?',
+        title: 'Which of these areas of dev do you think needs the most improvement?',
         choices: [
           { label: 'Deployment', value: 0, color: 'rgb(114, 147, 203)', voters: [] },
           { label: 'Tool Chain', value: 0, color: 'rgb(225, 151, 76)', voters: [] },
@@ -63,7 +63,7 @@ Meteor.startup(function () {
           { label: 'Other', value: 0, color: 'rgb(128, 133, 133)', voters: [] }
         ]
       },
-    ]
+    ];
 
     _.each(sampleQs, function(question) {
       SurveyQuestions.insert(question);

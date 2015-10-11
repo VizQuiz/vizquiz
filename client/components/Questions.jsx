@@ -10,33 +10,7 @@ Questions = React.createClass({
   },
 
   renderQuestions: function () {
-    var questions = [
-      {
-        _id: 1,
-        title: 'hi',
-        choices: [
-          <Choices 
-            _id='1' 
-            title='The first choice'
-            handleClick={this.handleClick}/>,
-          <Choices 
-            _id='2' 
-            title='The second choice'
-            handleClick={this.handleClick}/>,
-          <Choices 
-            _id='3' 
-            title='The third choice'
-            handleClick={this.handleClick}/>]
-      },
-
-      {
-        _id: 2,
-        title: 'hello',
-        choices: ['one', 'two', 'three']
-
-      }
-    ]
-    return questions.map(function (question, index) {
+    return this.props.questions.map(function (question, index) {
       return <Question id={question._id} title={question.title} choices={question.choices}/>
     })
   },
@@ -44,8 +18,8 @@ Questions = React.createClass({
   render: function () {
     var myQuestions = this.renderQuestions()
     return (
-    <div>
-      {myQuestions}
+      <div>
+        {myQuestions}
       </div>
     )
   }

@@ -4,6 +4,7 @@ Question = React.createClass({
     title: React.PropTypes.string.isRequired,
     choices: React.PropTypes.array.isRequired
   },
+
   getDefaultProps: function () {
     return {
       _id: 1,
@@ -14,19 +15,16 @@ Question = React.createClass({
   },
 
   render: function () {
-    var questions = {
-      _id: this.props._id,
-      title: this.props.title,
-      choices: this.props.choices
-    }
+    var choices = this.props.choices.map(function(choice, index) {
+      return <Choice count={choice.value} label={choice.label} voters={choice.voters} />
+    });
+
     return (
     <li>
-        <span>{questions._id}</span>
-        <span>{questions.title}</span>
+        <span>{this.props.id}</span>
+        <span>{this.props.title}</span>
         <ul>
-          <span>{questions.choices[0]}</span>
-          <span>{questions.choices[1]}</span>
-          <span>{questions.choices[2]}</span>
+          <span>{choices}</span>
         </ul>
       </li>
     )
