@@ -25,9 +25,9 @@ Question = React.createClass({
         <span>{this.props.id}</span>
         <span>{this.props.title}</span>
         <ul>
-          <span>{choices}</span>
+          {choices}
         </ul>
-      </li>
+    </li>
     )
   }
 })

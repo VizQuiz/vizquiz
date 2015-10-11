@@ -5,22 +5,14 @@ Questions = React.createClass({
     }
   },
 
-  handleClick: function(checked) {
-    console.log('checked')
-  },
-
-  renderQuestions: function () {
-    return this.props.questions.map(function (question, index) {
+  render: function () {
+    var myQuestions = this.props.questions.map(function (question, index) {
       return <Question key={question._id + index} id={question._id} title={question.title} choices={question.choices}/>
     })
-  },
-
-  render: function () {
-    var myQuestions = this.renderQuestions()
     return (
-      <div>
+      <ul>
         {myQuestions}
-      </div>
+      </ul>
     )
   }
 })

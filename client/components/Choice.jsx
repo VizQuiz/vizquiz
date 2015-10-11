@@ -1,28 +1,33 @@
 Choice = React.createClass({
 
   handleClick: function (e) {
-    var choiceId = this.props.choiceId
-    console.log('THE CLICK EVENT', this.props)
-    var propVal = 'choices.' + choiceId + '.voters'
-    var addToSet = {}
-    addToSet[propVal] = Session.get('deviceId') 
-    SurveyQuestions.update({_id: this.props.questionId}, { $addToSet: addToSet })
+
+    var newChoiceId = this.props.choiceId;
+    var questionId = this.props.questionId;
+
+    var addToSet = {};
+    var pull = {};
+    var propVal = 'choices.' + newChoiceId + '.voters';
+
+    addToSet[propVal] = Session.get('deviceId');
+    SurveyQuestions.update({_id: this.props.questionId}, { $addToSet: addToSet });
   },
 
   render: function () {
     var selectedChoice = false;
-    if (this.props.voters.indexOf(Session.get('deviceId')) >= 0) {
+    var index = this.props.voters.indexOf(Session.get('deviceId'));
+    if (index >= 0) {
       selectedChoice = true;
     }
 
     return (
-      <div>
+      <li>
         <input
           type='checkbox'
           checked={selectedChoice}
-          onClick={this.handleClick}/>
+          onChange={this.handleClick}/>
         <span>{this.props.label}</span>
-      </div>
+      </li>
     )
   }
 })
