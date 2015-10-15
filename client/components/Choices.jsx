@@ -1,14 +1,17 @@
 Choices = React.createClass({
-  handleClick: function(newIdx, id, evt) {
-    var oldIdx = evt.target.parentElement.parentElement.parentElement.getAttribute('data-chosen');
-    //console.log(newIdx, oldIdx, id);
+  handleClick: function(newIdx, qId, sId, evt) {
+    var oldIdx = parseInt(evt.target.parentElement.parentElement.parentElement.getAttribute('data-chosen'));
+    //console.log(newIdx, oldIdx, qId);
     var property;
     var action;
     var inc = {};
     var dec = {};
     var pull = {};
+    var aggDataAdd;
+    var aggDataRem;
 
     if (newIdx != oldIdx) {
+      //only do this if there is a change in vote
       property = 'choices.' + newIdx + '.voters';
       var addToSet = {};
       addToSet[property] = Session.get('deviceId');
@@ -16,12 +19,27 @@ Choices = React.createClass({
       property = 'choices.' + newIdx + '.votes';
       inc[property] = 1;
 
+      aggDataAdd = {
+        deviceId: Session.get('deviceId'),
+        questionIdx: this.props.questionIdx,
+        questionId: this.props.questionId,
+        choiceId: newIdx
+      }
+
       if (oldIdx >= 0) {
+        //when clicking unchecked item but other item is already checked, change vote
         property = 'choices.' + oldIdx + '.voters';
         pull[property] = Session.get('deviceId');
 
         property = 'choices.' + oldIdx + '.votes';
         inc[property] = -1;
+
+        aggDataRem = {
+          deviceId: Session.get('deviceId'),
+          questionIdx: this.props.questionIdx,
+          questionId: this.props.questionId,
+          choiceId: oldIdx
+        }
 
         action = {
             $addToSet: addToSet,
@@ -29,17 +47,26 @@ Choices = React.createClass({
             $inc: inc
           };
       } else {
+        //when no items are already checked, add vote
         action = {
           $addToSet: addToSet,
           $inc: inc
         };
       }
     } else {
+      //when item clicked is already checked, remove vote
       property = 'choices.' + newIdx + '.voters';
       pull[property] = Session.get('deviceId');
 
       property = 'choices.' + newIdx + '.votes';
       dec[property] = -1;
+
+      aggDataRem = {
+        deviceId: Session.get('deviceId'),
+        questionIdx: this.props.questionIdx,
+        questionId: this.props.questionId,
+        choiceId: newIdx
+      }
 
       action = {
         $pull: pull,
@@ -47,8 +74,22 @@ Choices = React.createClass({
       };
     }
 
+    if (aggDataRem) {
+      Surveys.update(
+        {_id: sId},
+        {$pull: {aggData: aggDataRem}}
+      );
+    }
+
+    if (aggDataAdd) {
+      Surveys.update(
+        {_id: sId},
+        {$addToSet: {aggData: aggDataAdd}}
+      );
+    }
+
     return SurveyQuestions.update(
-      {_id: id},
+      {_id: qId},
       action
     );
   },
@@ -80,7 +121,8 @@ Choices = React.createClass({
 
       return (
         <li key={index} className={choiceClass}>
-          <Choice label={choice.label} checked={selectedChoice} onChange={self.handleClick.bind(self, index, self.props.questionId)} />
+          <Choice label={choice.label} checked={selectedChoice} onChange={
+              self.handleClick.bind(self, index, self.props.questionId, self.props.surveyId)} />
           <ChoiceBar color={colors(index)} length={choicePercent + '%'} />
         </li>
       );

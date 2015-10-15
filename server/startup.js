@@ -4,7 +4,7 @@ Meteor.startup(function () {
   Surveys.remove({});
 
   if (Surveys.find().count() === 0) {
-    surveyId = Surveys.insert({surveyorId: '77777'});
+    surveyId = Surveys.insert({surveyorId: '77777', aggData: []});
   }
 
   surveyQs = SurveyQuestions.find({surveyId: surveyId});
