@@ -23,21 +23,15 @@ AggregateGraph = React.createClass({
     var textStyle = {
       fontFamily: 'Verdana',
       fontSize: '0.55rem',
-      fill: 'white'
     }
 
     var yLabels = yScale.domain().map(function(d, i) {
-      textStyle.fill = 'black';
-      //console.log(d === Session.get('deviceId'));
-      if (d === Session.get('deviceId')) {
-        console.log(textStyle);
-        //textStyle.fill = 'red';
-        console.log(textStyle);
-      }
 
+      console.log(textStyle.caption);
       return (
         <g key={i}>
           <text
+            fill={d === Session.get('deviceId') ? 'red' : 'black'}
             style={textStyle}
             x={0}
             y={yScale(d)}
@@ -59,6 +53,7 @@ AggregateGraph = React.createClass({
             cy={yScale(d.deviceId)}
             r={self.props.r} />
           <text
+            fill='white'
             style={textStyle}
             x={xScale(d.questionIdx)}
             y={yScale(d.deviceId)}
