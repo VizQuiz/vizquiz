@@ -66,7 +66,8 @@ AggregateGraph = React.createClass({
     var footerStyle = {
       position: 'fixed',
       bottom: 0,
-      width: '100%',
+      left: '5px',
+      right: '5px',
       height: '18%',
       padding: '5px',
       borderRadius: '5px',
@@ -75,10 +76,10 @@ AggregateGraph = React.createClass({
 
     return (
       <footer style={footerStyle}>
-      <svg width='500px' height='210px'>
-        {yLabels}
-        {dots}
-      </svg>
+        <svg width='500px' height='210px'>
+          {yLabels}
+          {dots}
+        </svg>
     </footer>
     )
   }
