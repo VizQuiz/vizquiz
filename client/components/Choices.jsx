@@ -120,8 +120,8 @@ Choices = React.createClass({
       }
 
       return (
-        <li key={index} className={choiceClass}>
-          <Choice label={choice.label} checked={selectedChoice} onChange={
+        <li key={index}>
+          <Choice label={choice.label} checked={selectedChoice} onClick={
               self.handleClick.bind(self, index, self.props.questionId, self.props.surveyId)} />
           <ChoiceBar color={colors(index)} length={choicePercent + '%'} />
         </li>

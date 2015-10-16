@@ -1,8 +1,7 @@
 AggregateGraph = React.createClass({
   getDefaultProps: function() {
     return {
-      r: 6,
-      dotOffset: 100
+      r: 8
     }
   },
 
@@ -27,7 +26,6 @@ AggregateGraph = React.createClass({
 
     var yLabels = yScale.domain().map(function(d, i) {
 
-      console.log(textStyle.caption);
       return (
         <g key={i}>
           <text
@@ -65,11 +63,23 @@ AggregateGraph = React.createClass({
       )
     });
 
+    var footerStyle = {
+      position: 'fixed',
+      bottom: 0,
+      width: '100%',
+      height: '18%',
+      padding: '5px',
+      borderRadius: '5px',
+      backgroundColor: 'lightgray'
+    }
+
     return (
+      <footer style={footerStyle}>
       <svg width='500px' height='210px'>
         {yLabels}
         {dots}
       </svg>
+    </footer>
     )
   }
 })

@@ -14,5 +14,4 @@ Meteor.startup(function () {
   Session.set('adminId', false);
 
   React.render(<Survey />, document.getElementById('vq-survey'));
-  //React.render(<Graph />, document.getElementById('vq-graph'));
 })

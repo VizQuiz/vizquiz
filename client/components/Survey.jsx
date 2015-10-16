@@ -26,15 +26,22 @@ Survey = React.createClass({
       return <Question key={question._id} questionIdx={index} question={question}/>
     });
 
+    var divStyle = {
+      minWidth: '430px'
+    };
+
     var ulStyle = {
-      listStyleType: 'none'
-    }
+      listStyleType: 'none',
+      paddingBottom: '20%'
+    };
 
     return (
-      <ul style={ulStyle}>
-        {questionList}
+      <div style={divStyle}>
+        <ul style={ulStyle}>
+          {questionList}
+        </ul>
         <AggregateGraph aggData={this.data.surveyAggs.aggData} />
-      </ul>
+      </div>
     )
   }
 })

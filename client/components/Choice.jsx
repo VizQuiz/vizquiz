@@ -1,12 +1,19 @@
 Choice = React.createClass({
 
   render: function () {
+
+    var spanStyle = {
+      cursor: 'pointer'
+    };
+
     return (
-      <span><input
-        type='checkbox'
-        checked={this.props.checked}
-        onChange={this.props.onChange}
-      /> {this.props.label}</span>
+      <span style={spanStyle} onClick={this.props.onClick}>
+        <input
+          type='checkbox'
+          checked={this.props.checked}
+          readOnly />
+        {this.props.label}
+      </span>
     )
   }
 })
