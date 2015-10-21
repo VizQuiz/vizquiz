@@ -27,12 +27,11 @@ Survey = React.createClass({
     });
 
     var divStyle = {
-      minWidth: '430px'
+
     };
 
     var ulStyle = {
-      listStyleType: 'none',
-      paddingBottom: '20%'
+      paddingBottom: '6em'
     };
 
     return (

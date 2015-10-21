@@ -1,8 +1,13 @@
 AggregateGraph = React.createClass({
   getDefaultProps: function() {
     return {
-      r: 8
+      r: 8,
+      left: '0'
     }
+  },
+
+  handleClick: function(evt) {
+    console.log(this.getDOMNode());
   },
 
   render: function() {
@@ -57,30 +62,38 @@ AggregateGraph = React.createClass({
             y={yScale(d.deviceId)}
             transform='translate(-3, 3)'
           >
-            {d.questionIdx}
+            {d.questionIdx + 1}
           </text>
         </g>
       )
     });
 
-    var footerStyle = {
+    var divStyle = {
       position: 'fixed',
+      boxSizing: 'border-box',
       bottom: 0,
-      left: '5px',
-      right: '5px',
-      height: '18%',
-      padding: '5px',
+      left: this.props.left,
+      width: '100%',
+      padding: '0 10px',
+      height: '6em',
+      zIndex: '2',
       borderRadius: '5px',
-      backgroundColor: 'lightgray'
+      backgroundColor: 'rgba(224,224,224,0.7)'
     }
-
+    var hiddenDivStyle = {
+      position: 'relative',
+      width: '4em',
+      bottom: '6em',
+      height: '100%'
+    }
     return (
-      <footer style={footerStyle}>
-        <svg width='500px' height='210px'>
+      <div style={divStyle}>
+        <svg width='100%' height='100%'>
           {yLabels}
           {dots}
         </svg>
-    </footer>
+        <div style={hiddenDivStyle} onClick={this.handleClick}></div>
+      </div>
     )
   }
 })
