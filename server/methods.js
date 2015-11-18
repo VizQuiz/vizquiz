@@ -1,5 +1,7 @@
 Meteor.methods({
   setUserId: function(userId) {
-    this.setUserId(userId);
+    if (!Meteor.user()) {
+      this.setUserId(userId);
+    }
   }
 });
