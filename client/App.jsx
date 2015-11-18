@@ -13,5 +13,6 @@ Meteor.startup(function () {
   Meteor.call('setUserId', myId);
   Session.set('adminId', false);
 
+  React.render(<NavBar />, document.getElementById('vq-nav'));
   React.render(<Survey />, document.getElementById('vq-survey'));
 })
