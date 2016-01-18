@@ -1,7 +1,7 @@
 ChoiceBarScale = React.createClass({
 
-  render: function () {
-    var textStyle = {
+  render() {
+    let textStyle = {
       fontFamily: 'Verdana',
       fontSize: '0.55rem',
     }

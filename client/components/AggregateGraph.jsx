@@ -1,35 +1,35 @@
 AggregateGraph = React.createClass({
-  getDefaultProps: function() {
+  getDefaultProps() {
     return {
       r: 8,
       left: '0'
     }
   },
 
-  handleClick: function(evt) {
+  handleClick(evt) {
     console.log(this.getDOMNode());
   },
 
-  render: function() {
-    var self = this;
-    var colors = d3.scale.category10();
-    colors.domain([0,1,2,3,4,5,6,7,8,9]);
+  render() {
+    let self = this;
+    let colors = d3.scale.category10();
+    colors.domain([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
-    var xScale = function(n) {
+    let xScale = function(n) {
       return (self.props.r * 2) + (self.props.r * 2 * n);
     };
 
-    var yScale = d3.scale.ordinal()
+    let yScale = d3.scale.ordinal()
     yScale.domain(this.props.aggData.map(function(d, i) {return d.deviceId;}));
-    var yCount = yScale.domain().length;
+    let yCount = yScale.domain().length;
     yScale.rangeRoundBands([10 + (2 * this.props.r * yCount), 10]);
 
-    var textStyle = {
+    let textStyle = {
       fontFamily: 'Verdana',
       fontSize: '0.55rem',
     }
 
-    var yLabels = yScale.domain().map(function(d, i) {
+    let yLabels = yScale.domain().map(function(d, i) {
 
       return (
         <g key={i}>
@@ -46,7 +46,7 @@ AggregateGraph = React.createClass({
       );
     });
 
-    var dots = this.props.aggData.map(function(d, i) {
+    let dots = this.props.aggData.map(function(d, i) {
       return (
         <g key={i} transform='translate(60, 0)'>
           <circle
@@ -68,7 +68,7 @@ AggregateGraph = React.createClass({
       )
     });
 
-    var divStyle = {
+    let divStyle = {
       position: 'fixed',
       boxSizing: 'border-box',
       bottom: 0,
@@ -80,7 +80,7 @@ AggregateGraph = React.createClass({
       borderRadius: '5px',
       backgroundColor: 'rgba(224,224,224,0.7)'
     }
-    var hiddenDivStyle = {
+    let hiddenDivStyle = {
       position: 'relative',
       width: '4em',
       bottom: '6em',

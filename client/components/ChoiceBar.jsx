@@ -1,8 +1,8 @@
 ChoiceBar = React.createClass({
 
-  render: function () {
-    var lineStyle = {stroke: this.props.color, strokeWidth: '5'}
-    var svgStyle = {
+  render() {
+    let lineStyle = {stroke: this.props.color, strokeWidth: '5'}
+    let svgStyle = {
       verticalAlign: 'top'
     }
 

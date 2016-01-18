@@ -1,6 +1,6 @@
 Question = React.createClass({
 
-  render: function () {
+  render() {
     return (
     <li>
         <div>{this.props.question.label}</div>

@@ -1,8 +1,8 @@
 Choice = React.createClass({
 
-  render: function () {
+  render() {
 
-    var spanStyle = {
+    let spanStyle = {
       cursor: 'pointer'
     };
 

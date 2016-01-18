@@ -8,7 +8,7 @@ Meteor.startup(function () {
 
     surveyQs = SurveyQuestions.find({surveyId: surveyId});
     if (surveyQs.count() === 0) {
-      var sampleQs = [
+      let sampleQs = [
         {
           surveyId: surveyId,
           surveyorId: '77777',

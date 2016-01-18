@@ -1,19 +1,18 @@
 Choices = React.createClass({
-  handleClick: function(newIdx, qId, sId, evt) {
-    var oldIdx = parseInt(evt.target.parentElement.parentElement.parentElement.getAttribute('data-chosen'));
-    //console.log(newIdx, oldIdx, qId);
-    var property;
-    var action;
-    var inc = {};
-    var dec = {};
-    var pull = {};
-    var aggDataAdd;
-    var aggDataRem;
+  handleClick(newIdx, qId, sId, evt) {
+    let oldIdx = parseInt(evt.target.parentElement.parentElement.parentElement.getAttribute('data-chosen'));
+    let property;
+    let action;
+    let inc = {};
+    let dec = {};
+    let pull = {};
+    let aggDataAdd;
+    let aggDataRem;
 
     if (newIdx != oldIdx) {
       //only do this if there is a change in vote
       property = 'choices.' + newIdx + '.voters';
-      var addToSet = {};
+      let addToSet = {};
       addToSet[property] = Session.get('deviceId');
 
       property = 'choices.' + newIdx + '.votes';
@@ -94,20 +93,20 @@ Choices = React.createClass({
     );
   },
 
-  render: function() {
-    var self = this;
-    var chosen = -1;
-    var choiceSum = 0;
-    var colors = d3.scale.category10();
+  render() {
+    let self = this;
+    let chosen = -1;
+    let choiceSum = 0;
+    let colors = d3.scale.category10();
 
     for (i = 0; i < self.props.choices.length; i++) {
       choiceSum += self.props.choices[i].votes;
     }
 
-    var listChoices = self.props.choices.map(function(choice, index) {
-      var choiceClass = 'choice';
-      var selectedChoice = false;
-      var choicePercent = 0;
+    let listChoices = self.props.choices.map(function(choice, index) {
+      //let choiceClass = 'choice';
+      let selectedChoice = false;
+      let choicePercent = 0;
 
       if(choiceSum !== 0) {
         choicePercent = (choice.votes / choiceSum * 100);
@@ -128,7 +127,7 @@ Choices = React.createClass({
       );
     });
 
-    var ulStyle = {
+    let ulStyle = {
       listStyleType: 'none'
     }
 

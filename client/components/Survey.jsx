@@ -1,10 +1,10 @@
 Survey = React.createClass({
   mixins: [ReactMeteorData],
 
-  getMeteorData: function () {
-    var returnData = {};
-    var subMySurvey = Meteor.subscribe('mySurvey', 'hello');
-    var subMySurveyAggs = Meteor.subscribe('mySurveyAggs', 'hello');
+  getMeteorData() {
+    let returnData = {};
+    let subMySurvey = Meteor.subscribe('mySurvey', 'hello');
+    let subMySurveyAggs = Meteor.subscribe('mySurveyAggs', 'hello');
 
     if(subMySurvey.ready() === true) {
       returnData.survey = SurveyQuestions.find({}).fetch();
@@ -21,16 +21,16 @@ Survey = React.createClass({
     return returnData;
   },
 
-  render: function () {
-    var questionList = this.data.survey.map(function (question, index) {
+  render() {
+    let questionList = this.data.survey.map(function (question, index) {
       return <Question key={question._id} questionIdx={index} question={question}/>
     });
 
-    var divStyle = {
+    let divStyle = {
 
     };
 
-    var ulStyle = {
+    let ulStyle = {
       paddingBottom: '6em'
     };
 
