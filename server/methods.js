@@ -1,7 +1,7 @@
 Meteor.methods({
-  setUserId: function(userId) {
+  setUserId(deviceId) {
     if (!Meteor.user()) {
-      this.setUserId(userId);
+      this.setUserId(deviceId);
     }
   }
 });

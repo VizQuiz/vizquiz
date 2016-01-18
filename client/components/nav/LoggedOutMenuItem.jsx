@@ -4,25 +4,35 @@ LoggedOutMenuItem = React.createClass({
   },
 
   render() {
-    let liStyle = {
-      display: 'block',
-      width: '3em',
-      height: '2em',
-      background: '#4E9CAF',
-      padding: '10px',
-      textAlign: 'center',
-      borderRadius: '5px',
-      color: 'white',
-      fontWeight: 'bold'
+    let imgStyle = {
+      maxHeight: '3em',
+      borderRadius: '50%',
+      backgroundColor: 'white'
+    }
+
+    let ulStyle = {
+      display: 'flex',
+      height: '3em',
+      padding: '1em',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      listStyleType: 'none'
     }
 
     return (
-      <li className="active" style={liStyle}>
-        <a href onClick={this.props.onLogin}>
-          Login with Github
-        </a>
-        to create your own surveys.
-      </li>
+      <ul style={ulStyle}>
+        <li>
+          <img
+            style={imgStyle}
+            src='images/GitHub-Mark-64px.png'
+            onClick={this.props.onLogin}/>
+        </li>
+        <li></li>
+        <li>
+          <a href="" onClick={this.props.onLogin}>Create you own surveys!</a>
+        </li>
+      </ul>
     );
   }
 });

@@ -1,0 +1,10 @@
+{
+  "name": "vizquiz",
+  "version": "0.1.0",
+  "description": "VizQuiz is a realtime survey/quiz app.",
+  "scripts": {
+    "start": "meteor --settings settings-development.json",
+    "staging": "meteor deploy vizquiz.meteor.com --settings settings-staging.json",
+    "production": "meteor deploy production.site.com --settings settings-production.json"
+  }
+}

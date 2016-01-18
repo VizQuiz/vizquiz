@@ -22,3 +22,6 @@ d3js:d3
 meteortoys:allthings
 accounts-password
 accounts-github
+service-configuration
+http
+msavin:mongol

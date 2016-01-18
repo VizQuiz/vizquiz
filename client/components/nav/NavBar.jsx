@@ -1,7 +1,6 @@
 NavBar = React.createClass({
   render() {
-    var navStyle = {
-      display: 'flex',
+    let navStyle = {
       width: '100%',
       height: '3em',
       borderSizing: 'border-box',
@@ -12,8 +11,6 @@ NavBar = React.createClass({
     return (
       <nav style={navStyle}>
         <LoginMenu />
-        this is my nav bar.
-        <ProfileLink />
       </nav>
     );
   }
