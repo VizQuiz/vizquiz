@@ -1,17 +1,18 @@
 LoggingInMenuItem = React.createClass({
   render() {
     let imgStyle = {
-      maxHeight: '3em',
-      borderRadius: '50%'
+      backgroundColor: 'white'
     }
 
     let ulStyle = {
       display: 'flex',
-      height: '3em',
+      WebkitDisplay: 'flex',
+      height: '3.5em',
       padding: '1em',
-      flexDirection: 'row',
       justifyContent: 'space-between',
+      WebkitJustifyContent: 'space-between',
       alignItems: 'center',
+      WebkitAlignItems: 'center',
       listStyleType: 'none'
     }
 
@@ -19,13 +20,18 @@ LoggingInMenuItem = React.createClass({
       <ul style={ulStyle}>
         <li>
           <img
+            className='ui tiny circular image'
             style={imgStyle}
-            src='images/GitHub-Mark-64px.png'
-            onClick={this.props.onLogin}/>
+            src='images/GitHub-Mark-120px-plus.png'
+          onClick={this.props.onLogin}/>
         </li>
         <li></li>
         <li>
-          <a href="">Logging In. . . </a>
+          <button
+            className="ui loading button"
+          >
+            ...
+          </button>
         </li>
       </ul>
     );

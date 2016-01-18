@@ -25,3 +25,5 @@ accounts-github
 service-configuration
 http
 msavin:mongol
+semantic:ui
+flemay:less-autoprefixer

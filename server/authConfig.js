@@ -16,7 +16,6 @@ function getUserInfo (accessToken) {
       access_token: accessToken
     }
   });
-  console.log(result.data);
   return _.pick(result.data, 'login', 'email', 'avatar_url');
 }
 

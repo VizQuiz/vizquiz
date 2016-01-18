@@ -13,17 +13,18 @@ LoggedInMenuItem = React.createClass({
 
   render() {
     let imgStyle = {
-      maxHeight: '3em',
-      borderRadius: '50%'
+      backgroundColor: 'white'
     }
 
     let ulStyle = {
       display: 'flex',
-      height: '3em',
+      WebkitDisplay: 'flex',
+      height: '3.5em',
       padding: '1em',
-      flexDirection: 'row',
       justifyContent: 'space-between',
+      WebkitJustifyContent: 'space-between',
       alignItems: 'center',
+      WebkitAlignItems: 'center',
       listStyleType: 'none'
     }
 
@@ -32,16 +33,23 @@ LoggedInMenuItem = React.createClass({
       <ul style={ulStyle}>
         <li>
           <img
+            className='ui tiny circular image'
             style={imgStyle}
-          src={this.data.currentUser.profile.avatar_url} />
+            src={this.data.currentUser.profile.avatar_url} />
         </li>
         <li>
           <ProfileMenu userId={this.data.currentUser.login}/>
         </li>
         <li>
-          <a href="" onClick={this.props.onLogout}>Logout</a>
+          <button
+            className="ui icon button"
+            onClick={this.props.onLogout}
+          >
+            Logout
+            <i className="right arrow icon"></i>
+          </button>
         </li>
       </ul>
-        );
+    );
   }
 });
