@@ -1,3 +1,5 @@
+Meteor.subscribe('user');
+
 Meteor.startup(function () {
   // var hash = location.hash;
   // if(hash === '') hash = '#99999'
@@ -5,13 +7,14 @@ Meteor.startup(function () {
   // console.log(Session.get('route'));
 
   if (!(localStorage.getItem('deviceId'))) {
-    var newId = new Meteor.Collection.ObjectID();
+    let newId = new Meteor.Collection.ObjectID();
     localStorage.setItem('deviceId', newId._str);
   }
-  var myId = localStorage.getItem('deviceId');
+  let myId = localStorage.getItem('deviceId');
   Session.set('deviceId', myId);
   Meteor.call('setUserId', myId);
   Session.set('adminId', false);
 
-  React.render(<Survey />, document.getElementById('vq-survey'));
+  ReactDOM.render(<NavBar />, document.getElementById('vq-nav'));
+  ReactDOM.render(<Survey />, document.getElementById('vq-survey'));
 })

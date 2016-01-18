@@ -7,7 +7,7 @@ Question = React.createClass({
         <Choices
           surveyId={this.props.question.surveyId}
           questionId={this.props.question._id}
-          questionIdx={this.props.questionIdx} 
+          questionIdx={this.props.questionIdx}
           choices={this.props.question.choices}/>
     </li>
     )
