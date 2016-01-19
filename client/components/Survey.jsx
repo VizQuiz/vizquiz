@@ -31,7 +31,8 @@ Survey = React.createClass({
     };
 
     let ulStyle = {
-      paddingBottom: '6em'
+      paddingBottom: '6em',
+      paddingLeft: '2em'
     };
 
     return (
