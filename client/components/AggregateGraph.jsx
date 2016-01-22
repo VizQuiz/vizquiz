@@ -22,7 +22,8 @@ AggregateGraph = React.createClass({
     let yScale = d3.scale.ordinal()
     yScale.domain(this.props.aggData.map(function(d, i) {return d.deviceId;}));
     let yCount = yScale.domain().length;
-    yScale.rangeRoundBands([10 + (2 * this.props.r * yCount), 10]);
+    let svgHeight = 10 + (2 * this.props.r * yCount);
+    yScale.rangeRoundBands([svgHeight, 10]);
 
     let textStyle = {
       fontFamily: 'Verdana',
@@ -78,7 +79,8 @@ AggregateGraph = React.createClass({
       height: '6em',
       zIndex: '2',
       borderRadius: '5px',
-      backgroundColor: 'rgba(224,224,224,0.7)'
+      backgroundColor: 'rgba(224,224,224,0.7)',
+      overflowY: 'scroll'
     }
     let hiddenDivStyle = {
       position: 'relative',
@@ -88,7 +90,7 @@ AggregateGraph = React.createClass({
     }
     return (
       <div style={divStyle}>
-        <svg width='100%' height='100%'>
+        <svg width='100%' height={svgHeight}>
           {yLabels}
           {dots}
         </svg>

@@ -128,7 +128,8 @@ Choices = React.createClass({
     });
 
     let ulStyle = {
-      listStyleType: 'none'
+      listStyleType: 'none',
+      paddingLeft: '1em'
     }
 
     return (

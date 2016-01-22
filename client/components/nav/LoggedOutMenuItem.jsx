@@ -5,18 +5,18 @@ LoggedOutMenuItem = React.createClass({
 
   render() {
     let imgStyle = {
-      maxHeight: '3em',
-      borderRadius: '50%',
       backgroundColor: 'white'
     }
 
     let ulStyle = {
       display: 'flex',
-      height: '3em',
+      WebkitDisplay: 'flex',
+      height: '3.5em',
       padding: '1em',
-      flexDirection: 'row',
       justifyContent: 'space-between',
+      WebkitJustifyContent: 'space-between',
       alignItems: 'center',
+      WebkitAlignItems: 'center',
       listStyleType: 'none'
     }
 
@@ -24,13 +24,20 @@ LoggedOutMenuItem = React.createClass({
       <ul style={ulStyle}>
         <li>
           <img
+            className='ui tiny circular image'
             style={imgStyle}
-            src='images/GitHub-Mark-64px.png'
-            onClick={this.props.onLogin}/>
+            src='images/GitHub-Mark-120px-plus.png'
+          onClick={this.props.onLogin}/>
         </li>
         <li></li>
         <li>
-          <a href="" onClick={this.props.onLogin}>Create you own surveys!</a>
+          <button
+            className="ui icon button"
+            onClick={this.props.onLogin}
+          >
+            Login
+            <i className="user icon"></i>
+          </button>
         </li>
       </ul>
     );
